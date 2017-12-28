@@ -16,18 +16,19 @@
 package com.lzy.demo.okgo;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.lzy.demo.R;
 import com.lzy.demo.base.BaseActivity;
+import com.lzy.demo.callback.BeanCallBack;
 import com.lzy.demo.callback.JsonCallback;
+import com.lzy.demo.model.BaseBean;
 import com.lzy.demo.utils.Urls;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.adapter.Call;
-import com.lzy.okgo.callback.StringCallback;
-import com.lzy.okgo.model.HttpHeaders;
 import com.lzy.okgo.model.Response;
 
 import org.json.JSONObject;
@@ -99,13 +100,13 @@ public class TestActivity extends BaseActivity {
 
     @OnClick(R.id.btn3)
     public void btn3(View view) {
-        OkGo.<String>get("asdfasf")//
-                .tag(this)//
-                .headers(HttpHeaders.HEAD_KEY_USER_AGENT, "abcd")//
-                .execute(new StringCallback() {
-                    @Override
-                    public void onSuccess(Response<String> response) {
 
+        OkGo.<BaseBean>get("https://aitalk.51tiangou.com/intent/welcome")
+                .tag(this)
+                .execute(new BeanCallBack<BaseBean>() {
+                    @Override
+                    public void onSuccess(BaseBean baseBean) {
+                        Log.w("tag",baseBean.toString());
                     }
                 });
     }
