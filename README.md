@@ -1,3 +1,4 @@
+master-add_demo分支增加简化封装后的使用示例
 ![](http://7xss53.com1.z0.glb.clouddn.com/markdown/aqyyw.jpg)
 
 ## OkGo - 3.0 震撼来袭, 一个基于okhttp的标准RESTful风格的网络框架
